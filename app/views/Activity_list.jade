@@ -1,0 +1,9 @@
+header
+  | 活动列表
+  .header-right
+    a.btn-style.btn.btn-4(ng-disabled='create_button_is_disabled', ng-click='go_to_create_activity_page()') 创建活动
+#wrapper.wrapper
+  ul.list-style-2
+    li(style='cursor:pointer', ng-repeat='current_activity in activity_list', ng-click='go_to_sign_page(current_activity.activity_id)')
+      h3(class="{{should_activity_be_yellow(current_activity.activity_id)}}")
+        a {{current_activity.activity_name}}

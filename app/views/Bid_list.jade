@@ -1,0 +1,19 @@
+header
+  .header-left
+    button.btn-style.btn-4(ng-click='back_to_activities_list_page()')
+      | 返回
+  div
+    | 竞价
+  .header-right
+    button.btn-style.btn.btn-4(href='', ng-disabled='button_is_not_available', ng-click='create_a_new_bid()')
+      | 开始
+#wrapper.wrapper
+  ul.list-style-2
+    li(ng-repeat='current_bid in bid_list', ng-click='go_to_bidders_page(current_bid)')
+      h3(class="{{bid_state(current_bid)}}") 竞价{{current_bidding}}
+footer
+  ul.footer-nav.footer-nav-2tabs
+    li(ng-click='go_to_sign_page()')
+      a 报名
+    li.active
+      a 竞价

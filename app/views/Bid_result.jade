@@ -1,0 +1,36 @@
+header
+  .header-left
+    button.btn-style.btn-4(ng-click='back_to_bid_list_page()')
+      | 返回
+  div
+    | 竞价{{id_of_bid}}
+    span(ng-model='number_of_bid')
+      | ({{number_of_bid}}人)
+  .header-right
+    button.btn-style.btn.btn-4(href='', ng-click='go_to_bid_statistics_page()')
+      | 统计
+#wrapper.wrapper
+  ul#bidding_participant.list-style-2
+    li(ng-repeat='bidder in bidders')
+      h3 {{bidder.bidder_number}}.{{bidder.name}}
+      i ¥{{bidder.price}}
+      p          {{bidder.phone}}
+
+
+
+#myModal.modal.fade(tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true")
+    .modal-header
+        button.close(type="button",data-dismiss="modal",aria-hidden="true",ng-click ='show_bid_result()') &times
+        h4.modal-title
+            | 竞价结果
+    .modal-body(style='display:block')
+        p(ng-show = 'winner') 竞价成功者姓名：{{winner.name}}
+        p(ng-show = 'winner') 竞价成功者电话：{{winner.phone}}
+        p(ng-show = 'winner') 竞价成功者价格：¥{{winner.price}}
+        p.bidding_failed(ng-show = '!winner') 竞价失败!
+
+
+footer(align='center', ng-show = 'bid_result')
+    .winner(ng-model = 'winner', ng-show = 'winner') 竞价结果:{{winner.name}} ¥{{winner.price}} {{winner.phone}}
+    .winner(ng-show = '!winner') 竞价失败
+

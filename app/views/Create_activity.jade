@@ -1,0 +1,18 @@
+header
+  .header-left
+    a.btn-style.btn-4(ng-show='show_return_button', ng-click='back_to_activity_list()')
+      | 返回
+  | 创建活动
+br
+br
+br
+br
+div(align='center')
+  | 活动名称：
+  p
+    input.input-apend(ng-model='activity_name',ng-change='remove_warning()')
+  p
+    button.btn.btn-2(href='', ng-disabled='!activity_name', ng-click='save_activity()')
+      | 创建
+p(ng-show='has_duplication', style='color:red')
+  | *活动名称重复

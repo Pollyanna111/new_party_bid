@@ -1,0 +1,16 @@
+header
+  .header-left
+    button.btn-style.btn-4(ng-click='back_to_bid_list_page()')
+      | 返回
+  div
+    | 竞价{{the_id_of_bid}}
+    span
+      | ({{number_of_bid}}人)
+  .header-right
+    button.btn-style.btn.btn-4(href='', ng-show='show_button_of_bid', ng-disabled='bid_button_is_disabled', ng-click='change_state_of_bid()')
+      | {{state_button_of_bid}}
+#wrapper.wrapper
+  ul#bidder.list-style-2
+    li(ng-repeat='bidder in bidders')
+      h3 {{bidder.bidder_number}}.{{bidder.name}}
+      p          {{bidder.phone}}

@@ -1,0 +1,20 @@
+header
+  .header-left
+    button.btn-style.btn-4(ng-click='back_to_bid_list_page()')
+      | 返回
+  div
+    | 竞价{{the_id_of_bid}}
+    span(ng-model='number_of_bid')
+      | ({{number_of_bid}}人)
+  .header-right
+    button.btn-style.btn.btn-4(href='', ng-click='go_to_bid_result_page()')
+      | 列表
+#wrapper.wrapper
+  ul#bidding_participant.list-style-2
+    li(ng-repeat='bid_price in bid_prices')
+      h3 ¥{{bid_price.price}}
+      i {{bid_price.number_of_bidders}}人
+
+footer
+     .winner(ng-model = 'winner', ng-show = 'winner') 竞价结果:{{winner.name}} ¥{{winner.price}} {{winner.phone}}
+     .winner(ng-show = '!winner') 竞价失败
